@@ -17,3 +17,7 @@ Cables:
 11- oranžovobílá\
 12- modrohnědá\
 13- modrooranžová\
+
+Othershits
+- [Photos](https://drive.google.com/drive/folders/1dajtCgVaGbZWspx-FvNlhnpKWF_dWJl5?usp=sharing)
+- [Video](https://youtu.be/kg9Qe9N5J2U)

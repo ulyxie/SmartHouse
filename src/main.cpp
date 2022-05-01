@@ -1,13 +1,11 @@
 #include <Arduino.h>
 #include <Servo.h>
-int8_t inters[] = { 45, 25, 27, 29, 31, 33,35,37,39,41,43};
-int8_t leds[] = { 22, 24, 26, 28, 30, 32 }; //0 == hall
-//int opened[] = { -90 ,110,-140 ,110,180,180,-110 ,-110, -110 };
+
+int8_t ir[] = { 45, 25, 27, 29, 31, 33,35,37,39,41,43 };
+
+int mot_ports[] = { 3, 4, 5, 7, 8,9,11,12,13 };
 int opened[] = { -90, 110,-110, -140, 110, -180, 180, 110, -110 };
 int closed[] = { 160, 40, 165, 170, 40, 175, 0, 50, 200 };
-//int closed[] = { 160,40 ,170,40 ,0,50 ,165,175,200 };
-int mot_ports[] = { 3, 4, 5, 7, 8,9,11,12,13 };
-int pwr[] = { 52,53 };
 int8_t prev = (int8_t)127;
 Servo motors[9];
 
@@ -20,6 +18,8 @@ void door(uint8_t which, uint8_t oc) {
     motors[assoc[which]].write(dual);
   }
 }
+
+int8_t leds[] = { 22, 24, 26, 28, 30, 32 }; //0 == hall
 void lon(int8_t which) { digitalWrite(leds[which], HIGH); }
 void loff(int8_t which) { digitalWrite(leds[which], LOW); }
 
@@ -150,7 +150,7 @@ void setup()
   }
   for (int8_t i = 0; i < 11; i++)
   {    
-    pinMode(inters[i], INPUT);
+    pinMode(ir[i], INPUT);
   }
   Serial.begin(115200);
   while(!Serial);
@@ -175,44 +175,44 @@ void setup()
 
 void loop()
 {
-  if (digitalRead(inters[0]) == LOW) {
+  if (digitalRead(ir[0]) == LOW) {
     sensor0();
   }
 
-  if (digitalRead(inters[1]) == LOW) {
+  if (digitalRead(ir[1]) == LOW) {
     sensor1();
   }
 
-  if (digitalRead(inters[2]) == LOW) {
+  if (digitalRead(ir[2]) == LOW) {
     sensor2();
   }
 
-  if (digitalRead(inters[3]) == LOW) {
+  if (digitalRead(ir[3]) == LOW) {
     sensor3();
   }
 
-  if (digitalRead(inters[4]) == LOW) {
+  if (digitalRead(ir[4]) == LOW) {
     sensor4();
   }
 
-  if (digitalRead(inters[5]) == LOW) {
+  if (digitalRead(ir[5]) == LOW) {
     sensor5();
   }
 
-  if (digitalRead(inters[6]) == LOW) {
+  if (digitalRead(ir[6]) == LOW) {
     sensor6();
   }
 
-  if (digitalRead(inters[7]) == LOW) {
+  if (digitalRead(ir[7]) == LOW) {
     sensor7();
   }
-  if (digitalRead(inters[8]) == LOW) {
+  if (digitalRead(ir[8]) == LOW) {
     sensor8();
   }
-  if (digitalRead(inters[9]) == LOW) {
+  if (digitalRead(ir[9]) == LOW) {
     sensor9();
   }
-  if (digitalRead(inters[10]) == LOW) {
+  if (digitalRead(ir[10]) == LOW) {
     sensor10();
   }
 }

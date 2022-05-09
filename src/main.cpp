@@ -4,8 +4,8 @@
 int8_t ir[] = { 45, 25, 27, 29, 31, 33,35,37,39,41,43 };
 
 int mot_ports[] = { 3, 4, 5, 7, 8,9,11,12,13 };
-int opened[] = { -90, 110,-110, -140, 110, -180, 180, 110, -110 };
-int closed[] = { 160, 40, 165, 170, 40, 175, 0, 50, 200 };
+int opened[] = { -90, 110,-110, -140, 110, -110, 180, 110, -110 };
+int closed[] = { 160, 40, 165, 170, 40, 175, 0, 50, 165 };
 int8_t prev = (int8_t)127;
 Servo motors[9];
 
@@ -14,7 +14,7 @@ void door(uint8_t which, uint8_t oc) {
   motors[which].write(angle);
   if (which == 1 || which == 4 || which == 7) {
     int8_t assoc[] = { 0,2,0,0,5,0,0,8 };
-    int dual = oc == 1 ? opened[assoc[which]] + closed[assoc[which]] : closed[assoc[which]];
+    int dual = oc == 1 ? opened[assoc[which]] + clanglesosed[assoc[which]] : closed[assoc[which]];
     motors[assoc[which]].write(dual);
   }
 }

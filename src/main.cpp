@@ -14,7 +14,7 @@ void door(uint8_t which, uint8_t oc) {
   motors[which].write(angle);
   if (which == 1 || which == 4 || which == 7) {
     int8_t assoc[] = { 0,2,0,0,5,0,0,8 };
-    int dual = oc == 1 ? opened[assoc[which]] + clanglesosed[assoc[which]] : closed[assoc[which]];
+    int dual = oc == 1 ? opened[assoc[which]] + closed[assoc[which]] : closed[assoc[which]];
     motors[assoc[which]].write(dual);
   }
 }

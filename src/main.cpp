@@ -108,7 +108,7 @@ void sensor7()
 }
 void sensor8(){
   if (prev != 7) return;
-  door(8, 0);
+  door(6, 0);
   loff(4);
   prev=8;
 }
